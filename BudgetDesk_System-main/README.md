@@ -1,4 +1,4 @@
-# LedgerFlow :bar_chart:
+# BudgetDesk System 💼
 
 ![Django](https://img.shields.io/badge/Django-5.1.8-092E20?style=for-the-badge&logo=django&logoColor=white)
 ![React](https://img.shields.io/badge/React-18.3.1-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -7,7 +7,7 @@
 ![JWT Auth](https://img.shields.io/badge/Auth-JWT_Cookies-0F766E?style=for-the-badge)
 ![PDF Export](https://img.shields.io/badge/Invoices-PDF_Export-B91C1C?style=for-the-badge)
 
-LedgerFlow is a full-stack finance workspace for freelancers, founders, and service teams who want invoicing and expense control in one clean operating system. Create polished invoices, export client-ready PDFs, track spend in real time, and monitor business performance from a dashboard built for action.
+BudgetDesk System is a comprehensive full-stack financial management application designed for freelancers, small business owners, and service teams. Manage invoices, track expenses, monitor cash flow, and gain insights into your business performance—all from a single, intuitive dashboard.
 
 Detailed technical documentation is available in [PROJECT_DOCUMENTATION.md](./PROJECT_DOCUMENTATION.md).
 
@@ -24,6 +24,31 @@ Detailed technical documentation is available in [PROJECT_DOCUMENTATION.md](./PR
 - Monitor income, expenses, and profit from a clean dashboard with charts
 - Filter ledger views with shareable query-based search and sorting
 
+## Quick Start
+
+### For Development
+
+```bash
+# Clone the repository
+git clone https://github.com/jadavkanu844-rgb/Bugetdesk_System.git
+cd BudgetDesk_System-main
+
+# Backend setup (Terminal 1)
+cd backend
+python -m venv venv
+venv\Scripts\activate  # On macOS/Linux: source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+
+# Frontend setup (Terminal 2)
+cd frontend
+npm install
+npm run dev
+```
+
+Visit `http://localhost:5173` to see the application.
+
 ## Tech Stack
 
 | Layer | Tools |
@@ -38,8 +63,8 @@ Detailed technical documentation is available in [PROJECT_DOCUMENTATION.md](./PR
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd Expence_Tracker
+git clone https://github.com/jadavkanu844-rgb/Bugetdesk_System.git
+cd BudgetDesk_System-main
 ```
 
 ### 2. Set up the backend
@@ -109,40 +134,112 @@ For production, make sure these values are updated:
 ## Folder Structure
 
 ```text
-Expence_Tracker/
+BudgetDesk_System-main/
 |-- backend/
 |   |-- apps/
 |   |   |-- expenses/
+|   |   |   |-- models.py
+|   |   |   |-- views.py
+|   |   |   |-- serializers.py
+|   |   |   |-- urls.py
+|   |   |   |-- filters.py
+|   |   |   `-- migrations/
 |   |   |-- invoices/
+|   |   |   |-- models.py
+|   |   |   |-- views.py
+|   |   |   |-- serializers.py
+|   |   |   |-- services.py
+|   |   |   |-- pdf.py
+|   |   |   |-- urls.py
+|   |   |   |-- filters.py
+|   |   |   `-- migrations/
 |   |   `-- users/
+|   |       |-- models.py
+|   |       |-- views.py
+|   |       |-- serializers.py
+|   |       |-- authentication.py
+|   |       |-- urls.py
+|   |       `-- migrations/
 |   |-- config/
+|   |   |-- settings.py
+|   |   |-- urls.py
+|   |   |-- wsgi.py
+|   |   |-- asgi.py
+|   |   `-- exception_handler.py
 |   |-- manage.py
 |   |-- requirements.txt
+|   |-- .env.example
 |   `-- db.sqlite3
 |-- frontend/
 |   |-- src/
 |   |   |-- api/
+|   |   |   |-- authService.js
+|   |   |   |-- client.js
+|   |   |   |-- dashboardService.js
+|   |   |   |-- expenseService.js
+|   |   |   `-- invoiceService.js
 |   |   |-- auth/
+|   |   |   |-- AuthContext.jsx
+|   |   |   `-- ProtectedRoute.jsx
 |   |   |-- components/
-|   |   |-- layouts/
+|   |   |   |-- charts/
+|   |   |   |-- common/
+|   |   |   `-- forms/
 |   |   |-- pages/
+|   |   |   |-- DashboardPage.jsx
+|   |   |   |-- ExpensesPage.jsx
+|   |   |   |-- InvoicesPage.jsx
+|   |   |   |-- LoginPage.jsx
+|   |   |   `-- RegisterPage.jsx
 |   |   |-- router/
-|   |   `-- utils/
+|   |   |   `-- AppRouter.jsx
+|   |   |-- layouts/
+|   |   |   `-- DashboardLayout.jsx
+|   |   |-- utils/
+|   |   |   `-- formatters.js
+|   |   |-- main.jsx
+|   |   `-- index.css
+|   |-- index.html
 |   |-- package.json
-|   `-- vite.config.js
+|   |-- vite.config.js
+|   |-- tailwind.config.js
+|   |-- postcss.config.js
+|   `-- public/
 |-- PROJECT_DOCUMENTATION.md
-`-- README.md
+|-- README.md
+|-- render.yaml
+`-- package-lock.json
 ```
 
 ## Future Improvements
 
-- Recurring invoices and scheduled billing cycles
+- Recurring invoices and automated billing cycles
 - Email delivery and payment reminders for invoices
-- CSV export and deeper financial reporting
-- Team roles, permissions, and multi-user workspaces
-- Payment gateway integration for faster collections
+- Advanced financial reporting and analytics
+- CSV/Excel export capabilities
+- Multi-user workspaces with team collaboration
+- Payment gateway integration (Stripe, PayPal)
+- Mobile app for iOS and Android
+- Automated invoice reminders and follow-ups
+- Tax report generation
+- Budget forecasting and planning tools
 
-## Author
+## Support & Documentation
 
-**Satis**  
-Full-stack developer focused on building product-first web applications with strong backend foundations and polished user experiences. Available for freelance builds, startup collaborations, and client projects.
+For detailed technical information, architecture decisions, and advanced setup guides, please refer to [PROJECT_DOCUMENTATION.md](./PROJECT_DOCUMENTATION.md).
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Contact & Support
+
+For questions, bug reports, or feature requests, please open an issue on the GitHub repository.
+
+---
+
+**Built with ❤️ for freelancers and small business owners**
